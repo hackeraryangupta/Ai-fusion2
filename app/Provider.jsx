@@ -2,6 +2,8 @@
 
 import React from 'react'
 import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+import { Appslider } from './_compomonents/Appslider'
 
 function Provider({ children, ...props }) {
   return (
@@ -12,7 +14,11 @@ function Provider({ children, ...props }) {
       disableTransitionOnChange
       {...props}
     >
+    <SidebarProvider>
+    <SidebarTrigger/>
+    <Appslider/>
       {children}
+      </SidebarProvider>
     </NextThemesProvider>
   )
 }
