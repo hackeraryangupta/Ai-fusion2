@@ -4,6 +4,7 @@ import React from 'react'
 import { ThemeProvider as NextThemesProvider } from "next-themes"
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 import { Appslider } from './_compomonents/Appslider'
+import Appheader from './_compomonents/Appheader'
 
 function Provider({ children, ...props }) {
   return (
@@ -15,9 +16,12 @@ function Provider({ children, ...props }) {
       {...props}
     >
     <SidebarProvider>
-    <SidebarTrigger/>
+    
     <Appslider/>
-      {children}
+    <div className='w-full'>
+
+    <Appheader/>{children}</div>
+      
       </SidebarProvider>
     </NextThemesProvider>
   )
