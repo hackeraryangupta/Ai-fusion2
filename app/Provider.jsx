@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { Appslider } from "./_compomonents/Appslider";
@@ -9,9 +9,15 @@ import { useUser } from "@clerk/nextjs";
  // make sure this path is correct
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/config/Firebase";
+import { Aiselected } from "@/context/Aiselected";
+import { DefaultModel } from "@/shared/AiModels";
+import { UserDetailContext } from "@/context/UserDetailContext";
 
 function Provider({ children, ...props }) {
   const { user } = useUser();
+  const [aiselectedmodels,setaiselectedmodels]=useState(DefaultModel);
+  const [userDetail,setUserDetail]=useState();
+
 
   // create new user in Firestore when logged in
   useEffect(() => {
@@ -28,6 +34,10 @@ function Provider({ children, ...props }) {
 
       if (userSnap.exists()) {
         console.log("✅ Existing user found");
+        const userInfo=userSnap.data();
+        setaiselectedmodels(userInfo?.selectedModelpref);
+        setUserDetail(userInfo);
+        return;
       } else {
         const userData = {
           name: user?.fullName,
@@ -39,6 +49,7 @@ function Provider({ children, ...props }) {
         };
         await setDoc(userRef, userData);
         console.log("🆕 New user data saved:", userData);
+        setUserDetail(userData);
       }
     } catch (error) {
       console.error("Error creating user:", error);
@@ -51,8 +62,10 @@ function Provider({ children, ...props }) {
       defaultTheme="light"
       enableSystem
       disableTransitionOnChange
-      {...props}
+      
     >
+    <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
+    <Aiselected.Provider value={{aiselectedmodels,setaiselectedmodels}}>
       <SidebarProvider>
         <Appslider />
         <div className="w-full">
@@ -60,6 +73,8 @@ function Provider({ children, ...props }) {
           {children}
         </div>
       </SidebarProvider>
+      </Aiselected.Provider>
+      </UserDetailContext.Provider>
     </NextThemesProvider>
   );
 }
