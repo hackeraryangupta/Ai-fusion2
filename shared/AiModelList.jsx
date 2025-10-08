@@ -5,13 +5,13 @@ export default [
     premium: false,
     enable: true,
     subModel: [
-      { name: "GPT 3.5", premium: false, id: "" },
-      { name: "GPT 3.5 Turbo", premium: false, id: "" },
-      { name: "GPT 4.1 Mini", premium: false, id: "" },
-      { name: "GPT 4.1", premium: true, id: "" },
-      { name: "GPT 5 Nano", premium: false, id: "" },
-      { name: "GPT 5 Mini", premium: false, id: "" },
-      { name: "GPT 5", premium: true, id: "" },
+      { name: "GPT 3.5", premium: false, id: "gpt-3.5" },
+      { name: "GPT 3.5 Turbo", premium: false, id: "gpt-3.5-turbo" },
+      { name: "GPT 4.1 Mini", premium: false, id: "gpt-4.1-mini" },
+      { name: "GPT 4.1", premium: true, id: "gpt-4.1" },
+      { name: "GPT 5 Nano", premium: false, id: "gpt-5-nano" },
+      { name: "GPT 5 Mini", premium: false, id: "gpt-5-mini" },
+      { name: "GPT 5", premium: true, id: "gpt-5" },
     ],
   },
   {
@@ -19,9 +19,9 @@ export default [
     icon: "/gemini.png",
     premium: false,
     subModel: [
-      { name: "Gemini 2.5 Lite", premium: false, id: "" },
-      { name: "Gemini 2.5 Flash", premium: false, id: "" },
-      { name: "Gemini 2.5 Pro", premium: true, id: "" },
+      { name: "Gemini 2.5 Lite", premium: false, id: "gemini-2.5-lite" },
+      { name: "Gemini 2.5 Flash", premium: false, id: "gemini-2.5-flash-lite" },
+      { name: "Gemini 2.5 Pro", premium: true, id: "gemini-2.5-pro" },
     ],
   },
   {
@@ -30,11 +30,11 @@ export default [
     premium: false,
     enable: true,
     subModel: [
-      { name: "DeepSeek R1", premium: false, id: "" },
-      { name: "DeepSeek Chat", premium: false, id: "" },
-      { name: "DeepSeek Coder V2", premium: true, id: "" },
-      { name: "DeepSeek Math", premium: false, id: "" },
-      { name: "DeepSeek Reasoner", premium: true, id: "" },
+      { name: "DeepSeek R1", premium: false, id: "DeepSeek-R1" },
+      { name: "DeepSeek Chat", premium: false, id: "DeepSeek-chat" },
+      { name: "DeepSeek Coder V2", premium: true, id: "Deepkseek-coder-v2" },
+      { name: "DeepSeek Math", premium: false, id: "Deepseek-math" },
+      { name: "DeepSeek Reasoner", premium: true, id: "Deepseek-reasoner" },
     ],
   },
   {
@@ -43,8 +43,8 @@ export default [
     premium: true,
     enable: true,
     subModel: [
-      { name: "Mistral Medium 2505", premium: true, id: "" },
-      { name: "Mistral 38", premium: false, id: "" },
+      { name: "Mistral Medium 2505", premium: true, id: "mistral-medium-2505" },
+      { name: "Mistral 38", premium: false, id: "mistral-medium-2505" },
     ],
   },
   {
@@ -53,8 +53,8 @@ export default [
     premium: true,
     enable: true,
     subModel: [
-      { name: "Grok 3 Mini", premium: false, id: "" },
-      { name: "Grok 3", premium: true, id: "" },
+      { name: "Grok 3 Mini", premium: false, id: "grok-3-mini" },
+      { name: "Grok 3", premium: true, id: "grok-3" },
     ],
   },
   {
@@ -63,8 +63,8 @@ export default [
     premium: true,
     enable: true,
     subModel: [
-      { name: "Cohere Command A", premium: false, id: "" },
-      { name: "Cohere Command R 08-2024", premium: false, id: "" },
+      { name: "Cohere Command A", premium: false, id: "cohere-command-a" },
+      { name: "Cohere Command R 08-2024", premium: false, id: "cohere-command-r" },
     ],
   },
   {
@@ -73,8 +73,8 @@ export default [
     premium: true,
     enable: true,
     subModel: [
-      { name: "Llama 3.3 70B Instruct", premium: true, id: "" },
-      { name: "Llama 4 Scout 178 16E Instruct", premium: true, id: "" },
+      { name: "Llama 3.3 70B Instruct", premium: true, id: "Llama-3.3-70B-Instruct" },
+      { name: "Llama 4 Scout 178 16E Instruct", premium: true, id: "Llama-4-scout" },
     ],
   },
 ];
